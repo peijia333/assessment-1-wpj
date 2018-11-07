@@ -1,0 +1,213 @@
+---
+title: "accessment 1"
+author: "pj"
+date: "7 November 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+getwd()
+setwd("N:/GIS/wk3")
+
+install.packages("tidyverse")
+library(tidyverse)
+LondonData <- read.csv("https://files.datapress.com/london/dataset/ward-profiles-and-atlas/2015-09-24T14:21:24/ward-profiles-excel-version.csv", na = "n/a")
+class(LondonData)
+LondonData <- read.csv("https://files.datapress.com/london/dataset/ward-profiles-and-atlas/2015-09-24T14:21:24/ward-profiles-excel-version.csv")
+LondonData <- edit(LondonData)
+summary(df)
+names(LondonData)
+LondonBoroughs<-LondonData[626:658,]
+LondonData <- data.frame(LondonData)
+LondonBoroughs <- LondonData[grep("^E09",LondonData[,3]),]
+head(LondonBoroughs)
+LondonBoroughs <- LondonBoroughs[2:34,]
+LondonBoroughs<-LondonBoroughs[,c(1,19,20,21)]
+#rename the column 1 in LondonBoroughs
+names(LondonBoroughs)[1] <- c("Borough Name")
+plot(LondonBoroughs$Male.life.expectancy..2009.13, LondonBoroughs$X..children.in.reception.year.who.are.obese...2011.12.to.2013.14)
+library(plotly)
+plot_ly(LondonBoroughs, x = ~Male.life.expectancy..2009.13, y = ~X..children.in.reception.year.who.are.obese...2011.12.to.2013.14, text = ~LondonBoroughs$`Borough Name`, type = "scatter", mode = "markers")
+
+
+
+install.packages("maptools")
+install.packages("classint")
+install.packages("OpenStreetMap")
+install.packages("tmap")
+install.packages("RColorBrewer")
+install.packages("sp")
+install.packages("rgeos")
+install.packages("tmaptools")
+install.packages("sf")
+install.packages("downloader")
+install.packages("rgdal")
+install.packages("geojsonio")
+
+
+
+
+
+
+library(maptools)
+library(RColorBrewer)
+library(classInt)
+library(OpenStreetMap)
+library(sp)
+library(rgeos)
+library(tmap)
+library(tmaptools)
+library(sf)
+library(rgdal)
+library(geojsonio)
+
+library(geojsonio)
+
+library(tmap)
+EW <- geojson_read("http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50_2.geojson", what = "sp")
+LondonMap <- EW[grep("^E09",EW@data$lad15cd),]
+qtm(LondonMap)
+
+BoroughMapSF <- read_shape("BoundaryData/england_lad_2011.shp", as.sf = TRUE)
+BoroughMapSP <- LondonMap
+qtm(BoroughMapSF)
+qtm(BoroughMapSP)
+library(methods)
+#check the class of BoroughMapSF
+class(BoroughMapSF)
+#And check the class of BoroughMapSP
+class(BoroughMapSP)
+#now convert the SP object into an SF object...
+newSF <- st_as_sf(BoroughMapSP)
+#and try the other way around SF to SP...
+newSP <- as(newSF, "Spatial")
+#simples!
+BoroughMapSP <- as(BoroughMapSF, "Spatial")
+#join the data to the @data slot in the SP data frame
+BoroughMapSP@data <- data.frame(BoroughMapSP@data,LondonData[match(BoroughMapSP@data[,"code"],LondonData[,"New.code"]),])
+BoroughDataMap <- append_data(BoroughMapSF,LondonData, key.shp = "code", key.data = "New.code", ignore.duplicates = TRUE)
+BoroughDataMap <- append_data(BoroughMapSF,LondonData, key.shp = "code", key.data = "New.code", ignore.duplicates = TRUE)
+BoroughDataMap2 <- BoroughMapSF %>% left_join(LondonData, by = c("code" = "New.code"))
+library(tmap)
+library(tmaptools)
+tmap_mode("plot")
+qtm(BoroughDataMap, fill = "Rate.of.JobSeekers.Allowance..JSA..Claimants...2015")
+london_osm <- read_osm(BoroughDataMap, type = "esri", zoom = NULL)
+qtm(london_osm) + 
+  tm_shape(BoroughDataMap) + 
+  tm_polygons("Rate.of.JobSeekers.Allowance..JSA..Claimants...2015", 
+              style="jenks",
+              palette="YlOrBr",
+              midpoint=NA,
+              title="Rate per 1,000 people",
+              alpha = 0.5) + 
+  tm_compass(position = c("left", "bottom"),type = "arrow") + 
+  tm_scale_bar(position = c("left", "bottom")) +
+  tm_layout(title = "Job seekers' Allowance Claimants", legend.position = c("right", "bottom"))
+tm_shape(BoroughDataMap) +
+  tm_polygons(c("Average.Public.Transport.Accessibility.score...2014", "Violence.against.the.person.rate...2014.15"), 
+              style=c("jenks", "pretty"),
+              palette=list("YlOrBr", "Purples"),
+              auto.palette.mapping=FALSE,
+              title=c("Average Public Transport Accessibility", "Violence Against the Person Rate"))
+
+install.packages("shinyjs")
+library(shinyjs)
+tmaptools::palette_explorer()
+
+tmap_mode("view")
+tm_shape(BoroughDataMap) +
+  tm_polygons("X..children.in.year.6.who.are.obese..2011.12.to.2013.14",
+              style="jenks",
+              palette="PuRd",
+              midpoint=NA,
+              title="Truffle Shuffle Intensity")
+
+install.packages("ggplot2")
+install.packages("rgeos")
+library(ggplot2)
+library(rgeos)
+ggplot(data.frame, aes(x=x, y=y))
+geom_polygon(aes(x=x, y=y), data.frame)
+ggplot()+geom_sf(mapping = aes(geometry=geometry),data = BoroughDataMap)+theme_minimal()
+ggplot()+geom_sf(mapping = aes(geometry=geometry, fill=Median.House.Price...U.00A3.....2014),data =BoroughDataMap)+theme_minimal()
+
+palette1<-scale_fill_continuous(low="white", high="orange", "Price(£)")
+labels<-labs(list(title="Average House Price 2014",x="Longitude", y="Latitude"))
+ggplot()+geom_sf(mapping = aes(geometry=geometry, fill=Median.House.Price...U.00A3.....2014),data = BoroughDataMap)+theme_minimal()+palette1+labels
+
+
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+
+From the view of operational experience,
+Rstudio is free, and the source code is open, easy for scholars to learn and research. At the same time, Rstudio can easily import data from multiple data sources, including text files, databases, and other statistical software. However, it have some weakness as well. Firstly, it is easy to crash and has no backup in the crash state. At the same time, in an exchange environment, mistakes are hard to undo, and sometimes they even need to start from scratch.
+Arcmap has the advantage of simple mapping steps and a variety of free maps to choose from. It also restores site information and supports offline editing and analysis. Its drawback is that it has to pay and it is expensive, which could be a barrier to some scholars.
+
+From the view of function,
+Rstudio mainly specializes in statistical analysis, it provides a variety of data processing and analysis technology. At the same time, Rstudio has excellent drawing capabilities. Especially for the visualization of complex data, the advantage of R is more obvious. In addition, the interactive data analysis of Rstudio is powerful and flexible. If the analysis involves a series of models, and some models need to repeatedly call the results of the previous model, then the flexibility of Rstudio will be more prominent. Last but not least, Rstudio can install a number of plug-ins to process data more efficiently. Acrmap can make geographic mapping based on existing data, and it can be modified and edited at will. Its scope of application is wider than that of Rstudio, and the aspects of analysis are more diverse.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 1 
+![Caption for the picture.](N:/GIS/part 1/Map of Arcmap.jpg)
+
+Figure 2 
+![Caption for the picture.](N:/GIS/part 1/Map of Rstudio.jpeg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
