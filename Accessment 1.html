@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Accessment+1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<hr />
+<p>title: &quot;accessment 1&quot;
+author: &quot;pj&quot;
+date: &quot;7 November 2018&quot;</p>
+<h2>output: html_document</h2>
+<p><code>{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)</code></p>
+<p>```{r}
+getwd()
+setwd(&quot;N:/GIS/wk3&quot;)</p>
+<p>install.packages(&quot;tidyverse&quot;)
+library(tidyverse)
+LondonData &lt;- read.csv(&quot;https://files.datapress.com/london/dataset/ward-profiles-and-atlas/2015-09-24T14:21:24/ward-profiles-excel-version.csv&quot;, na = &quot;n/a&quot;)
+class(LondonData)
+LondonData &lt;- read.csv(&quot;https://files.datapress.com/london/dataset/ward-profiles-and-atlas/2015-09-24T14:21:24/ward-profiles-excel-version.csv&quot;)
+LondonData &lt;- edit(LondonData)
+summary(df)
+names(LondonData)
+LondonBoroughs&lt;-LondonData[626:658,]
+LondonData &lt;- data.frame(LondonData)
+LondonBoroughs &lt;- LondonData[grep(&quot;^E09&quot;,LondonData[,3]),]
+head(LondonBoroughs)
+LondonBoroughs &lt;- LondonBoroughs[2:34,]
+LondonBoroughs&lt;-LondonBoroughs[,c(1,19,20,21)]</p>
+<h1>rename the column 1 in LondonBoroughs</h1>
+<p>names(LondonBoroughs)[1] &lt;- c(&quot;Borough Name&quot;)
+plot(LondonBoroughs$Male.life.expectancy..2009.13, LondonBoroughs$X..children.in.reception.year.who.are.obese...2011.12.to.2013.14)
+library(plotly)
+plot_ly(LondonBoroughs, x = ~Male.life.expectancy..2009.13, y = ~X..children.in.reception.year.who.are.obese...2011.12.to.2013.14, text = ~LondonBoroughs$<code>Borough Name</code>, type = &quot;scatter&quot;, mode = &quot;markers&quot;)</p>
+<p>install.packages(&quot;maptools&quot;)
+install.packages(&quot;classint&quot;)
+install.packages(&quot;OpenStreetMap&quot;)
+install.packages(&quot;tmap&quot;)
+install.packages(&quot;RColorBrewer&quot;)
+install.packages(&quot;sp&quot;)
+install.packages(&quot;rgeos&quot;)
+install.packages(&quot;tmaptools&quot;)
+install.packages(&quot;sf&quot;)
+install.packages(&quot;downloader&quot;)
+install.packages(&quot;rgdal&quot;)
+install.packages(&quot;geojsonio&quot;)</p>
+<p>library(maptools)
+library(RColorBrewer)
+library(classInt)
+library(OpenStreetMap)
+library(sp)
+library(rgeos)
+library(tmap)
+library(tmaptools)
+library(sf)
+library(rgdal)
+library(geojsonio)</p>
+<p>library(geojsonio)</p>
+<p>library(tmap)
+EW &lt;- geojson<em>read(&quot;http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50</em>2.geojson&quot;, what = &quot;sp&quot;)
+LondonMap &lt;- EW[grep(&quot;^E09&quot;,EW@data$lad15cd),]
+qtm(LondonMap)</p>
+<p>BoroughMapSF &lt;- read<em>shape(&quot;BoundaryData/england</em>lad_2011.shp&quot;, as.sf = TRUE)
+BoroughMapSP &lt;- LondonMap
+qtm(BoroughMapSF)
+qtm(BoroughMapSP)
+library(methods)</p>
+<h1>check the class of BoroughMapSF</h1>
+<p>class(BoroughMapSF)</p>
+<h1>And check the class of BoroughMapSP</h1>
+<p>class(BoroughMapSP)</p>
+<h1>now convert the SP object into an SF object...</h1>
+<p>newSF &lt;- st<em>as</em>sf(BoroughMapSP)</p>
+<h1>and try the other way around SF to SP...</h1>
+<p>newSP &lt;- as(newSF, &quot;Spatial&quot;)</p>
+<h1>simples!</h1>
+<p>BoroughMapSP &lt;- as(BoroughMapSF, &quot;Spatial&quot;)</p>
+<h1>join the data to the @data slot in the SP data frame</h1>
+<p>BoroughMapSP@data &lt;- data.frame(BoroughMapSP@data,LondonData[match(BoroughMapSP@data[,&quot;code&quot;],LondonData[,&quot;New.code&quot;]),])
+BoroughDataMap &lt;- append<em>data(BoroughMapSF,LondonData, key.shp = &quot;code&quot;, key.data = &quot;New.code&quot;, ignore.duplicates = TRUE)
+BoroughDataMap &lt;- append</em>data(BoroughMapSF,LondonData, key.shp = &quot;code&quot;, key.data = &quot;New.code&quot;, ignore.duplicates = TRUE)
+BoroughDataMap2 &lt;- BoroughMapSF %&gt;% left<em>join(LondonData, by = c(&quot;code&quot; = &quot;New.code&quot;))
+library(tmap)
+library(tmaptools)
+tmap<em>mode(&quot;plot&quot;)
+qtm(BoroughDataMap, fill = &quot;Rate.of.JobSeekers.Allowance..JSA..Claimants...2015&quot;)
+london</em>osm &lt;- read</em>osm(BoroughDataMap, type = &quot;esri&quot;, zoom = NULL)
+qtm(london<em>osm) + 
+  tm</em>shape(BoroughDataMap) + 
+  tm_polygons(&quot;Rate.of.JobSeekers.Allowance..JSA..Claimants...2015&quot;, 
+              style=&quot;jenks&quot;,
+              palette=&quot;YlOrBr&quot;,
+              midpoint=NA,
+              title=&quot;Rate per 1,000 people&quot;,
+              alpha = 0.5) + 
+  tm<em>compass(position = c(&quot;left&quot;, &quot;bottom&quot;),type = &quot;arrow&quot;) + 
+  tm</em>scale<em>bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) +
+  tm<em>layout(title = &quot;Job seekers' Allowance Claimants&quot;, legend.position = c(&quot;right&quot;, &quot;bottom&quot;))
+tm</em>shape(BoroughDataMap) +
+  tm</em>polygons(c(&quot;Average.Public.Transport.Accessibility.score...2014&quot;, &quot;Violence.against.the.person.rate...2014.15&quot;), 
+              style=c(&quot;jenks&quot;, &quot;pretty&quot;),
+              palette=list(&quot;YlOrBr&quot;, &quot;Purples&quot;),
+              auto.palette.mapping=FALSE,
+              title=c(&quot;Average Public Transport Accessibility&quot;, &quot;Violence Against the Person Rate&quot;))</p>
+<p>install.packages(&quot;shinyjs&quot;)
+library(shinyjs)
+tmaptools::palette_explorer()</p>
+<p>tmap<em>mode(&quot;view&quot;)
+tm</em>shape(BoroughDataMap) +
+  tm_polygons(&quot;X..children.in.year.6.who.are.obese..2011.12.to.2013.14&quot;,
+              style=&quot;jenks&quot;,
+              palette=&quot;PuRd&quot;,
+              midpoint=NA,
+              title=&quot;Truffle Shuffle Intensity&quot;)</p>
+<p>install.packages(&quot;ggplot2&quot;)
+install.packages(&quot;rgeos&quot;)
+library(ggplot2)
+library(rgeos)
+ggplot(data.frame, aes(x=x, y=y))
+geom<em>polygon(aes(x=x, y=y), data.frame)
+ggplot()+geom</em>sf(mapping = aes(geometry=geometry),data = BoroughDataMap)+theme_minimal()
+ggplot()+geom<em>sf(mapping = aes(geometry=geometry, fill=Median.House.Price...U.00A3.....2014),data =BoroughDataMap)+theme</em>minimal()</p>
+<p>palette1&lt;-scale<em>fill</em>continuous(low=&quot;white&quot;, high=&quot;orange&quot;, &quot;Price(?&quot;)
+labels&lt;-labs(list(title=&quot;Average House Price 2014&quot;,x=&quot;Longitude&quot;, y=&quot;Latitude&quot;))
+ggplot()+geom<em>sf(mapping = aes(geometry=geometry, fill=Median.House.Price...U.00A3.....2014),data = BoroughDataMap)+theme</em>minimal()+palette1+labels</p>
+<p>```</p>
+<h2>R Markdown</h2>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<p><code>{r cars}
+summary(cars)</code></p>
+<h2>Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<p><code>{r pressure, echo=FALSE}
+plot(pressure)</code></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<p>From the view of operational experience,
+Rstudio is free, and the source code is open, easy for scholars to learn and research. At the same time, Rstudio can easily import data from multiple data sources, including text files, databases, and other statistical software. However, it have some weakness as well. Firstly, it is easy to crash and has no backup in the crash state. At the same time, in an exchange environment, mistakes are hard to undo, and sometimes they even need to start from scratch.
+Arcmap has the advantage of simple mapping steps and a variety of free maps to choose from. It also restores site information and supports offline editing and analysis. Its drawback is that it has to pay and it is expensive, which could be a barrier to some scholars.</p>
+<p>From the view of function,
+Rstudio mainly specializes in statistical analysis, it provides a variety of data processing and analysis technology. At the same time, Rstudio has excellent drawing capabilities. Especially for the visualization of complex data, the advantage of R is more obvious. In addition, the interactive data analysis of Rstudio is powerful and flexible. If the analysis involves a series of models, and some models need to repeatedly call the results of the previous model, then the flexibility of Rstudio will be more prominent. Last but not least, Rstudio can install a number of plug-ins to process data more efficiently. Acrmap can make geographic mapping based on existing data, and it can be modified and edited at will. Its scope of application is wider than that of Rstudio, and the aspects of analysis are more diverse.</p>
+<p>Figure 1 
+![Caption for the picture.](N:/GIS/part 1/Map of Arcmap.jpg)</p>
+<p>Figure 2 
+![Caption for the picture.](N:/GIS/part 1/Map of Rstudio.jpeg)</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
